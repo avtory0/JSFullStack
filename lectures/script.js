@@ -52,3 +52,5 @@ console.log(++incr);
 console.log(--decr);
 
 console.log(5%2);
+
+//условия №13
