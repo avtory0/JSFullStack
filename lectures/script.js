@@ -88,7 +88,7 @@ console.log(5%2);
 
 //Циклы №14
 
-let num = 50;
+// let num = 50;
 // while(num<55){
 //     console.log(num);
 //     num++;
@@ -100,13 +100,13 @@ let num = 50;
 // }
 // while(num<55);
 
-for (let i =1; i < 8; i++){
-    if (i ==6){
-        break;
-    }
-    console.log(num);
-    num++;
-}
+// for (let i =1; i < 8; i++){
+//     if (i ==6){
+//         break;
+//     }
+//     console.log(num);
+//     num++;
+// }
 
 // Функции №16
 
@@ -120,22 +120,78 @@ showFirstMessage('Hello World!');
 // }
 // console.log(calc(4,3));
 
-function ret() {
-    let num = 50;
+// function ret() {
+//     let num = 50;
 
-    return num;
-}
-const anotherNum = ret();
-console.log(anotherNum);
+//     return num;
+// }
+// const anotherNum = ret();
+// console.log(anotherNum);
 
-const logger = function () {
-    console.log("hello");
-};
-logger();
+// const logger = function () {
+//     console.log("hello");
+// };
+// logger();
 
-const calc = (a,b) => a+b; //стрелочная функция
-const calculation = (a, b) => {
-    console.log('1');
-    return a + b;
-};
+// const calc = (a,b) => a+b; //стрелочная функция
+// const calculation = (a, b) => {
+//     console.log('1');
+//     return a + b;
+// };
 //17 методы и свойства у строк и чисел
+
+const str = "teSt";
+const arr = [1,2,4];
+
+// console.log(arr.length);
+// console.log(str[2]);
+// console.log(str.toUpperCase());
+// console.log(str.toLowerCase());
+console.log(str);
+const fruit = "some fruit";
+console.log(fruit.indexOf("fruit"));
+ // indexof() метод получение номера какого-либо символа (получение номера подстроки)
+
+ const logg = "Hello world";
+console.log(logg.slice(6, 11));
+// метод slice() позволяет вырезать часть строки.
+//Принимает два параметра: 1- начальная позиция, 2- конец не включая последний символ
+console.log(logg.substring(6, 11));
+//метод  substring() похож на slice(), за исключением того, что первый аргумент может принимать значение больше второго
+console.log(logg.substr(6, 3));
+//метод substr() первый аргумент отвечает за начальную позицию,
+// а второй указываеьт на количество символов, которые нужно вырезать
+
+const num = 12.2;
+console.log(Math.round(num)); 
+
+const test = "12.2px";
+console.log(parseInt(test));
+console.log(parseFloat(test));
+//parseInt() переводит в int-овое значение
+
+//# callback-функция
+
+function first () {
+    setTimeout(function(){
+        console.log(1);
+    }, 500);
+}
+
+function second() {
+    console.log(2);
+}
+first();
+second();
+
+function learnJS(lang,callback) {
+    console.log(`Я учу: ${lang}`);
+    callback(); 
+}
+function done() {
+    console.log('Я прошел этот урок');
+}
+learnJS('JavaScript', done); //передаем функцию done в ф-цию learnJS
+// learnJS('JavaScript', function(){
+//     console.log('Я прошел этот урок');
+// });
