@@ -64,7 +64,7 @@ function writeTourGenres() {
 }
 writeTourGenres();
 
-
+//другие варианты второй практики
 // let j=0;
 // while( j < 2) {
 //     const a = prompt('Один из последних просмотренных фильмов',''),
