@@ -107,3 +107,35 @@ for (let i =1; i < 8; i++){
     console.log(num);
     num++;
 }
+
+// Функции №16
+
+function showFirstMessage (text){
+    console.log(text);
+}
+showFirstMessage('Hello World!');
+
+// function calc(a,b){
+//     return(a+b);
+// }
+// console.log(calc(4,3));
+
+function ret() {
+    let num = 50;
+
+    return num;
+}
+const anotherNum = ret();
+console.log(anotherNum);
+
+const logger = function () {
+    console.log("hello");
+};
+logger();
+
+const calc = (a,b) => a+b; //стрелочная функция
+const calculation = (a, b) => {
+    console.log('1');
+    return a + b;
+};
+//17 методы и свойства у строк и чисел
