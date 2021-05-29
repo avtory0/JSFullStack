@@ -51,7 +51,7 @@ let incr = 10,
 console.log(++incr);
 console.log(--decr);
 
-console.log(5%2);
+console.log(5 % 2);
 
 //условия №13
 
@@ -110,7 +110,7 @@ console.log(5%2);
 
 // Функции №16
 
-function showFirstMessage (text){
+function showFirstMessage(text) {
     console.log(text);
 }
 showFirstMessage('Hello World!');
@@ -140,19 +140,19 @@ showFirstMessage('Hello World!');
 // };
 //17 методы и свойства у строк и чисел
 
-const str = "teSt";
-const arr = [1,2,4];
+// const str = "teSt";
+// const arr = [1, 2, 4];
 
 // console.log(arr.length);
 // console.log(str[2]);
 // console.log(str.toUpperCase());
 // console.log(str.toLowerCase());
-console.log(str);
+// console.log(str);
 const fruit = "some fruit";
 console.log(fruit.indexOf("fruit"));
- // indexof() метод получение номера какого-либо символа (получение номера подстроки)
+// indexof() метод получение номера какого-либо символа (получение номера подстроки)
 
- const logg = "Hello world";
+const logg = "Hello world";
 console.log(logg.slice(6, 11));
 // метод slice() позволяет вырезать часть строки.
 //Принимает два параметра: 1- начальная позиция, 2- конец не включая последний символ
@@ -163,7 +163,7 @@ console.log(logg.substr(6, 3));
 // а второй указываеьт на количество символов, которые нужно вырезать
 
 const num = 12.2;
-console.log(Math.round(num)); 
+console.log(Math.round(num));
 
 const test = "12.2px";
 console.log(parseInt(test));
@@ -172,8 +172,8 @@ console.log(parseFloat(test));
 
 //# callback-функция
 
-function first () {
-    setTimeout(function(){
+function first() {
+    setTimeout(function () {
         console.log(1);
     }, 500);
 }
@@ -184,9 +184,9 @@ function second() {
 first();
 second();
 
-function learnJS(lang,callback) {
+function learnJS(lang, callback) {
     console.log(`Я учу: ${lang}`);
-    callback(); 
+    callback();
 }
 function done() {
     console.log('Я прошел этот урок');
@@ -195,3 +195,179 @@ learnJS('JavaScript', done); //передаем функцию done в ф-цию
 // learnJS('JavaScript', function(){
 //     console.log('Я прошел этот урок');
 // });
+
+//20 объекты
+
+const options = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'red'
+    },
+    makeTest: function () {
+        console.log("TEST");
+    }
+};
+
+options.makeTest();
+
+const { border, bg } = options.colors; // деструктуризация объекта
+console.log(border);
+
+// console.log(options.name);
+// delete options.name;
+// console.log(options);
+// let counter = 0;
+// for (let key in options) {
+//     if(typeof(options[key]) === 'object') {
+//         for (let i in options[key]) {
+//             console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+//             counter ++;
+//         }
+//     }
+//     else {
+//     console.log(`Свойство ${key} имеет значение ${options[key]}`);
+//     counter ++;
+//     }
+// }
+// console.log(counter);
+console.log(Object.keys(options).length);
+//object.keys создает массив и записывает в него все свойства нашего объекта options
+
+//21 массивы и псевдомассивы 
+
+const array = [41, 12, 23, 6, 8];
+array.sort(compareNum);
+console.log(array);
+
+function compareNum(a, b) {
+    return a - b;
+}
+
+// array[99] = 0;
+// console.log(array.length);
+
+array.forEach(function (item, i, array) {
+    console.log(`${i}: ${item} внутри массива ${array}`);
+});
+// array.pop(); //удаляет последний эл-т
+// array.push(10); // добавляет в конец эл-т
+
+// console.log(array);
+// for (let i = 0; i < array.length; i++) {
+//     console.log(array[i]);
+// }
+
+// for (let value of array) {
+//     console.log(value);
+// }
+// const str = prompt("","");
+// const products = str.split(", ");
+// products.sort();
+// console.log(products.join(';'));
+
+//22 Передача по ссылке  или по значению
+
+let a = 5,
+    b = a;
+b = b + 5;
+console.log(b);
+console.log(a);
+
+const obj = {
+    a:5,
+    b:1
+};
+// const copy = obj; //ссылка на объект obj
+// copy.a = 10;
+// console.log(copy);
+// console.log(obj);
+
+function copy(mainObj){
+    let objCopy = {};
+    let key;
+    for(key in mainObj){
+        objCopy[key] = mainObj[key];
+    }
+    return objCopy;
+}
+
+const numbers = {
+    a: 2,
+    b:5,
+    c: {
+        x:7,
+        y:4
+    }
+};
+const newNumbers = copy(numbers);
+newNumbers.a = 10;
+newNumbers.c.x = 10;
+// console.log(newNumbers);
+// console.log(numbers);
+
+const add = {
+    d: 13,
+    e:21
+};
+// console.log(Object.assign(numbers, add));
+const clone = Object.assign({}, add); // создали клон объекта add
+clone.d = 34;
+// console.log(add);
+// console.log(clone);
+
+const oldArray = ['a','b','c'];
+const newArray = oldArray.slice(); // метод копирования массива
+newArray[1] = 'check';
+console.log(newArray);
+console.log(oldArray);
+
+const video = ['youtube','rutube','sometrash'],
+      blogs = ['wordpress','livejournal'],
+      internet = [...video,...blogs, 'vk','inst']; //spread оператор
+
+console.log(internet);
+
+function log (a,b,c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+const logNum = [1,2,8];
+log(...logNum); //spread оператор массива
+
+const arr = ['a','b'];
+const newArr = [...arr];
+
+const q = {
+    one: 1,
+    two: 2
+};
+const newObjQ = {...q}; //spread оператор объекта
+console.log(newObjQ);
+
+//ооп
+ let str = "string";
+ let strObj = new String(str); // объект
+//  console.log(typeof str);
+//  console.log(typeof strObj);
+
+console.dir([1,2,3]);
+
+const soldier = { //прототип 
+    health: 400,
+    armor: 100
+};
+
+const John = Object.create(soldier); //объект John будет прототипно насследоваться от soilder
+// const John ={
+//     health: 100
+// };
+
+// John.__proto__ = soldier; // устаревший формат
+
+// Object.setPrototypeOf(John, soldier); //два параметра 1- куда, 2- откуда 
+
+console.log(John.armor);
