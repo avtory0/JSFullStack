@@ -165,7 +165,7 @@ const exmpl = 'My name is R2D2';
 // const pass = prompt('password, please');
 
 // const reg = /n/ig; // regex
-const reg = /\d/; 
+const reg = /\d/;
 
 console.log(exmpl.match(/\D/ig));
 
@@ -177,3 +177,63 @@ console.log(exmpl.match(/\D/ig));
 
 
 
+class User {
+    constructor(name, age) {
+        this.name = name;
+        this._age = age;
+    }
+
+    // #surname = 'balancevich';
+
+    // get surname() {
+    //     return this.#surname;
+    // }
+
+    // set surname(snm) {
+    //     this.#surname = snm;
+    // }
+
+    say() {
+        console.log(`Имя пользователя: ${this.name} возраст ${this._age}`);
+    }
+
+    get age() {
+        return this._age;
+    }
+
+    set age(age) {
+        if (typeof age === 'number' && age > 0 && age < 110) {
+            this._age = age;
+        } else {
+            console.log('недопустимое значение');
+        }
+    }
+
+}
+
+const ivan = new User('ivan', 12);
+console.log(ivan.age);
+ivan.age = 99;
+console.log(ivan.age);
+
+ivan.say();
+
+
+
+//---
+
+// const myModule = require('.lib');
+
+// const myModuleInstance = new myModule(); // экземпляр объекта
+// myModuleInstance.hello();
+// myModuleInstance.goodbye();
+
+
+// import {one as first} from './lib';
+// import {one, two} from './lib';
+import * as data from './lib.js';
+import sayHi from './lib.js';
+
+console.log(`${data.one} and ${data.two}`);
+// console.log(first);
+sayHi();
